@@ -109,16 +109,6 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
 </div>
 </section>
 
-<!-- 操作影片 -->
-<section>
-<div class="container fade-in" style="text-align:center">
-  <h2 style="margin-bottom:24px">🎬 實際操作展示</h2>
-  <video controls style="width:100%;max-width:900px;border-radius:12px;border:1px solid var(--border)" poster="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E5%B7%A5%E5%85%B7%E5%8C%AF%E5%87%BA%E7%9A%84%E6%88%90%E5%93%81%E5%9C%96-1.jpg">
-    <source src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E6%93%8D%E4%BD%9C%E5%BD%B1%E7%89%87.mp4" type="video/mp4">
-    您的瀏覽器不支援影片播放
-  </video>
-</div>
-</section>
 
 <!-- 數據概覽 -->
 <section style="background:var(--bg-alt)">
@@ -127,29 +117,33 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
   <h2 class="fade-in">為什麼要做這個工具？</h2>
   <p class="subtitle fade-in" style="color:var(--text2)">以往的痛點 vs 現在的解法</p>
   
-  <div class="compare-grid fade-in" style="margin-top:32px">
-    <div class="compare-col before" style="padding:24px">
-      <h4 style="margin-bottom:16px">❌ 以往（手動製作）</h4>
-      <figure class="image-frame" style="margin-bottom:16px"><img src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E4%BB%A5%E5%BE%80.jpg" alt="以往手動排版" style="max-height:250px"></figure>
-      <ul style="list-style:none;padding:0;color:var(--text2);font-size:17px;line-height:2.4">
-        <li>• 設計師一個一個手動排版、打字</li>
-        <li>• 容易漏放圖片或放錯零件圖</li>
-        <li>• 手動輸入尺寸容易打錯</li>
-        <li>• 每台機台重複操作，耗時費力</li>
-        <li>• 修改一個零件要重新調整整頁排版</li>
-      </ul>
+  <div class="compare-grid fade-in" style="margin-top:32px;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="compare-col before" style="padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center">
+      <div>
+        <h4 style="margin-bottom:16px">❌ 以往（手動製作）</h4>
+        <ul style="list-style:none;padding:0;color:var(--text2);font-size:15px;line-height:2.2">
+          <li>• 手動排版、打字</li>
+          <li>• 容易漏放或放錯圖</li>
+          <li>• 尺寸容易打錯</li>
+          <li>• 每台重複操作</li>
+          <li>• 改一個要調整整頁</li>
+        </ul>
+      </div>
+      <figure class="image-frame" style="margin:0"><img src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E4%BB%A5%E5%BE%80.jpg" alt="以往手動排版" style="max-height:220px"></figure>
     </div>
-    <div class="compare-col after" style="padding:24px">
-      <h4 style="margin-bottom:16px">✅ 現在（AI 工具）</h4>
-      <figure class="image-frame" style="margin-bottom:16px"><img src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E7%8F%BE%E5%9C%A8.jpg" alt="現在AI工具" style="max-height:250px"></figure>
-      <ul style="list-style:none;padding:0;color:var(--text2);font-size:17px;line-height:2.4">
-        <li>• AI 自動辨識圖片上的尺寸文字（OCR）</li>
-        <li>• 拖放即完成排版，不需手動打字</li>
-        <li>• 零件清單自動生成，不會遺漏</li>
-        <li>• 換機台只需替換素材，結構自動套用</li>
-        <li>• 紅線自動閃避卡片（A* pathfinding）</li>
-        <li>• 隨時拖動調整，紅線即時重算</li>
-      </ul>
+    <div class="compare-col after" style="padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center">
+      <div>
+        <h4 style="margin-bottom:16px">✅ 現在（AI 工具）</h4>
+        <ul style="list-style:none;padding:0;color:var(--text2);font-size:15px;line-height:2.2">
+          <li>• AI 自動辨識尺寸（OCR）</li>
+          <li>• 拖放完成排版</li>
+          <li>• 零件清單自動生成</li>
+          <li>• 換機台只需替換素材</li>
+          <li>• 紅線自動閃避卡片</li>
+          <li>• 拖動即時重算</li>
+        </ul>
+      </div>
+      <figure class="image-frame" style="margin:0"><img src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E7%8F%BE%E5%9C%A8.jpg" alt="現在AI工具" style="max-height:220px"></figure>
     </div>
   </div>
 </div>
