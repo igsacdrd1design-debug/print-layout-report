@@ -21,7 +21,7 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* Hero */
-.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 48px;width:100%}
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 48px;width:100%}
 .hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero .sub{font-size:18px;color:var(--text2);max-width:600px;margin:0 auto 32px}
 
@@ -96,10 +96,12 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
 
 <!-- Hero -->
 <section class="hero">
-<div class="container fade-in">
-  <h1>58 件零件 × 1 台機台 = 1 份印刷說明圖</h1>
-  <p class="sub">給遊戲機台設計師的排版工具——拖放卡片、連線標註、一鍵匯出 A3</p>
-  <figure class="image-frame">
+<div class="container fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;text-align:left">
+  <div>
+    <h1>58 件零件 × 1 台機台<br>= 印刷說明圖</h1>
+    <p class="sub" style="margin:24px 0 0;text-align:left">給遊戲機台設計師的排版工具<br>拖放卡片、連線標註、一鍵匯出 A3</p>
+  </div>
+  <figure class="image-frame" style="margin:0">
     <img src="%E7%B6%B2%E9%A0%81%E5%9C%96%E7%89%87/%E5%B7%A5%E5%85%B7%E5%8C%AF%E5%87%BA%E7%9A%84%E6%88%90%E5%93%81%E5%9C%96-1.jpg" alt="印刷說明圖成品">
     <figcaption>印刷整合排版工具匯出的 A3 印刷說明圖</figcaption>
   </figure>
@@ -116,18 +118,17 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
   <div class="compare-grid fade-in" style="margin-top:32px">
     <div class="compare-col before" style="padding:24px">
       <h4 style="margin-bottom:16px">❌ 以往（手動製作）</h4>
-      <ul style="list-style:none;padding:0;color:var(--text2);font-size:14px;line-height:2.2">
+      <ul style="list-style:none;padding:0;color:var(--text2);font-size:17px;line-height:2.4">
         <li>• 設計師一個一個手動排版、打字</li>
         <li>• 容易漏放圖片或放錯零件圖</li>
         <li>• 手動輸入尺寸容易打錯</li>
         <li>• 每台機台重複操作，耗時費力</li>
-        <li>• 紅線指示用手拉，經常壓到卡片</li>
         <li>• 修改一個零件要重新調整整頁排版</li>
       </ul>
     </div>
     <div class="compare-col after" style="padding:24px">
       <h4 style="margin-bottom:16px">✅ 現在（AI 工具）</h4>
-      <ul style="list-style:none;padding:0;color:var(--text2);font-size:14px;line-height:2.2">
+      <ul style="list-style:none;padding:0;color:var(--text2);font-size:17px;line-height:2.4">
         <li>• AI 自動辨識圖片上的尺寸文字（OCR）</li>
         <li>• 拖放即完成排版，不需手動打字</li>
         <li>• 零件清單自動生成，不會遺漏</li>
@@ -136,6 +137,45 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
         <li>• 隨時拖動調整，紅線即時重算</li>
       </ul>
     </div>
+  </div>
+</div>
+</section>
+
+<!-- AI 開發方式 -->
+<section style="background:var(--bg-alt)">
+<div class="container">
+  <span class="section-num">05</span>
+  <h2 class="fade-in">首次嘗試：AI 協作開發</h2>
+  <p class="fade-in" style="color:var(--text2);max-width:600px;margin:16px auto;text-align:center">這是第一次嘗試用 AI 工具全程開發一套可交付的實用軟體</p>
+  
+  <div class="data-grid fade-in" style="margin-top:32px">
+    <div class="data-card"><div class="num">Kiro</div><div class="label">AI 開發助手</div><div style="font-size:12px;color:var(--text2);margin-top:4px">Claude Code CLI</div></div>
+    <div class="data-card"><div class="num">2949</div><div class="label">行程式碼</div><div style="font-size:12px;color:var(--text2);margin-top:4px">AI 生成 + 人工驗收</div></div>
+    <div class="data-card"><div class="num">5天</div><div class="label">開發週期</div><div style="font-size:12px;color:var(--text2);margin-top:4px">從零到可用</div></div>
+  </div>
+
+  <h3 class="fade-in" style="margin-top:40px">開發流程</h3>
+  <div class="timeline fade-in" style="margin-top:20px">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--blue)"></div>
+      <div class="tl-content"><strong>描述需求</strong><br><span style="color:var(--text2)">用自然語言告訴 AI「我要做什麼」——不需要寫程式碼</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--blue)"></div>
+      <div class="tl-content"><strong>AI 產出程式碼</strong><br><span style="color:var(--text2)">AI 根據需求生成完整可執行的程式碼</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--orange)"></div>
+      <div class="tl-content"><strong>人工驗收</strong><br><span style="color:var(--text2)">設計師實際操作、回報問題、提供截圖</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--green)"></div>
+      <div class="tl-content"><strong>AI 修正迭代</strong><br><span style="color:var(--text2)">AI 根據回饋修正 → 再驗收 → 直到正確</span></div>
+    </div>
+  </div>
+
+  <div class="quote-box fade-in" style="margin-top:32px">
+    人只需要做兩件事：<b>說清楚要什麼</b>，以及<b>確認結果對不對</b>。<br>程式碼的撰寫、除錯、優化——全部交給 AI。
   </div>
 </div>
 </section>
@@ -194,45 +234,6 @@ h3{font-size:20px;font-weight:600;margin-bottom:8px}
       <div class="cause">根因：Canvas 2D 重畫整頁（材質表、卡片、紅線）的邏輯跟 HTML/CSS 渲染完全不同 → 結構、順序、間距全部不對。</div>
       <div class="fix">✅ 解法：放棄「重畫」，改為 html2canvas 直接截取 DOM。看到什麼就匯出什麼 = WYSIWYG。</div>
     </div>
-  </div>
-</div>
-</section>
-
-<!-- AI 開發方式 -->
-<section style="background:var(--bg-alt)">
-<div class="container">
-  <span class="section-num">05</span>
-  <h2 class="fade-in">首次嘗試：AI 協作開發</h2>
-  <p class="fade-in" style="color:var(--text2);max-width:600px;margin:16px auto;text-align:center">這是第一次嘗試用 AI 工具全程開發一套可交付的實用軟體</p>
-  
-  <div class="data-grid fade-in" style="margin-top:32px">
-    <div class="data-card"><div class="num">Kiro</div><div class="label">AI 開發助手</div><div style="font-size:12px;color:var(--text2);margin-top:4px">Claude Code CLI</div></div>
-    <div class="data-card"><div class="num">2949</div><div class="label">行程式碼</div><div style="font-size:12px;color:var(--text2);margin-top:4px">AI 生成 + 人工驗收</div></div>
-    <div class="data-card"><div class="num">5天</div><div class="label">開發週期</div><div style="font-size:12px;color:var(--text2);margin-top:4px">從零到可用</div></div>
-  </div>
-
-  <h3 class="fade-in" style="margin-top:40px">開發流程</h3>
-  <div class="timeline fade-in" style="margin-top:20px">
-    <div class="tl-item">
-      <div class="tl-dot" style="background:var(--blue)"></div>
-      <div class="tl-content"><strong>描述需求</strong><br><span style="color:var(--text2)">用自然語言告訴 AI「我要做什麼」——不需要寫程式碼</span></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot" style="background:var(--blue)"></div>
-      <div class="tl-content"><strong>AI 產出程式碼</strong><br><span style="color:var(--text2)">AI 根據需求生成完整可執行的程式碼</span></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot" style="background:var(--orange)"></div>
-      <div class="tl-content"><strong>人工驗收</strong><br><span style="color:var(--text2)">設計師實際操作、回報問題、提供截圖</span></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot" style="background:var(--green)"></div>
-      <div class="tl-content"><strong>AI 修正迭代</strong><br><span style="color:var(--text2)">AI 根據回饋修正 → 再驗收 → 直到正確</span></div>
-    </div>
-  </div>
-
-  <div class="quote-box fade-in" style="margin-top:32px">
-    人只需要做兩件事：<b>說清楚要什麼</b>，以及<b>確認結果對不對</b>。<br>程式碼的撰寫、除錯、優化——全部交給 AI。
   </div>
 </div>
 </section>
