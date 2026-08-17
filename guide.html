@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>印刷整合工具 — 功能操作說明</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg1:#0d1117;--bg2:#161b22;--bg-alt:#1c2128;--card:#21262d;--border:#30363d;--red:#E63946;--blue:#4a90d9;--green:#27ae60;--orange:#f39c12;--text:#e6edf3;--text2:#8b949e;--font:'Inter','Noto Sans TC',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);line-height:1.7;overflow-x:hidden}
+section{padding:70px 0;position:relative}
+section:nth-child(even){background:var(--bg-alt)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+h2{font-size:30px;font-weight:700;margin-bottom:24px}
+.section-num{position:absolute;top:36px;left:24px;font-size:72px;font-weight:900;opacity:0.12;color:var(--blue)}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.hero{padding:90px 24px 50px;text-align:center}
+.hero h1{font-size:clamp(24px,4.5vw,40px);font-weight:900;background:linear-gradient(135deg,var(--blue),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.hero p{color:var(--text2);font-size:15px;max-width:520px;margin:0 auto}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:24px 0}
+.step-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;transition:transform 0.2s}
+.step-card:hover{transform:translateY(-3px)}
+.step-card .img-placeholder{background:var(--bg-alt);border:2px dashed var(--border);border-radius:8px;padding:32px 12px;font-size:12px;color:var(--text2);min-height:140px;display:flex;align-items:center;justify-content:center;text-align:center}
+.step-card h4{font-size:15px;margin:12px 0 6px;color:var(--text);font-weight:600}
+.step-card p{font-size:12px;color:var(--text2);line-height:1.5}
+.warn-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.warn-item{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:14px 18px}
+.warn-item.ok{border-left-color:var(--green)}
+.warn-item h4{font-size:14px;margin-bottom:4px}
+.warn-item p{font-size:12px;color:var(--text2)}
+@media(max-width:768px){.step-grid{grid-template-columns:1fr}.hero h1{font-size:24px}h2{font-size:24px}.section-num{font-size:48px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="container fade-in">
+  <h1>印刷整合工具 — 功能操作說明</h1>
+  <p>拖放卡片、連線標註、一鍵匯出 A3 印刷指示圖。每個功能附操作示範。</p>
+</div>
+</section>
+
+<!-- 01 基本操作 -->
+<section>
+<div class="container">
+  <span class="section-num">01</span>
+  <h2 class="fade-in">基本操作</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/01-drag-card.gif" style="width:100%;border-radius:8px"><h4>拖放卡片</h4><p>從左側零件清單按住卡片，拖到中間頁面放開</p></div>
+    <div class="step-card"><img src="images/02-move-card.gif" style="width:100%;border-radius:8px"><h4>移動卡片</h4><p>直接拖曳到想要的位置，接近其他卡片會自動吸附對齊</p></div>
+    <div class="step-card"><img src="images/03-resize-card.gif" style="width:100%;border-radius:8px"><h4>調整大小</h4><p>拖曳卡片右下角的藍色方塊，自由調整寬度和高度</p></div>
+    <div class="step-card"><img src="images/04-delete-card.gif" style="width:100%;border-radius:8px"><h4>刪除卡片</h4><p>滑鼠移到卡片上 → 右上角出現 × → 點擊刪除</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 02 頁面控制 -->
+<section>
+<div class="container">
+  <span class="section-num">02</span>
+  <h2 class="fade-in">頁面控制</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/05-zoom.gif" style="width:100%;border-radius:8px"><h4>放大/縮小</h4><p>工具列 🔍+/- 按鈕，或 Ctrl + 滾輪（50%~150%）</p></div>
+    <div class="step-card"><img src="images/06-page-manage.gif" style="width:100%;border-radius:8px"><h4>新增/切換頁面</h4><p>「＋ 新增頁面」建立新頁，點 P01/P02 標籤切換</p></div>
+    <div class="step-card"><img src="images/07-auto-arrange.gif" style="width:100%;border-radius:8px"><h4>自動排列</h4><p>⚡ 自動排列 → 勾選零件 → 確認，沿頁面四邊排列</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 03 卡片編輯 -->
+<section>
+<div class="container">
+  <span class="section-num">03</span>
+  <h2 class="fade-in">卡片編輯</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/08-crop.gif" style="width:100%;border-radius:8px"><h4>裁切圖片</h4><p>雙擊卡片圖片 → 拖曳裁切框選區域 → 確認裁切</p></div>
+    <div class="step-card"><img src="images/09-edit-text.gif" style="width:100%;border-radius:8px"><h4>編輯文字</h4><p>hover → ✏️ → 修改名稱/數量/尺寸/材質/印刷方式</p></div>
+    <div class="step-card"><img src="images/10-text-color.gif" style="width:100%;border-radius:8px"><h4>文字改色</h4><p>✏️ 面板中選「標題顏色」或「內文顏色」色票</p></div>
+    <div class="step-card"><img src="images/11-opacity.gif" style="width:100%;border-radius:8px"><h4>調整透明度</h4><p>✏️ 面板拖曳透明度滑桿（0%~100%）</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 04 紅線 -->
+<section>
+<div class="container">
+  <span class="section-num">04</span>
+  <h2 class="fade-in">紅線指示線</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/12-set-redline.gif" style="width:100%;border-radius:8px"><h4>設定紅線</h4><p>hover → 🎯 → 點擊機台圖上對應位置 → 紅線連接</p></div>
+    <div class="step-card"><img src="images/13-auto-avoid.gif" style="width:100%;border-radius:8px"><h4>自動閃避</h4><p>A* 演算法自動繞過其他卡片，只走 90° 直角</p></div>
+    <div class="step-card"><img src="images/14-drag-recalc.gif" style="width:100%;border-radius:8px"><h4>拖曳重算</h4><p>移動卡片後紅線自動重新計算最佳路徑</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 05 機台圖 -->
+<section>
+<div class="container">
+  <span class="section-num">05</span>
+  <h2 class="fade-in">機台圖</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/15-change-machine.gif" style="width:100%;border-radius:8px"><h4>更換機台圖</h4><p>工具列 🖼️ 按鈕 → 選圖片上傳（每頁可用不同圖）</p></div>
+    <div class="step-card"><img src="images/16-adjust-machine.gif" style="width:100%;border-radius:8px"><h4>調整位置/大小</h4><p>🔓 解鎖 → 拖曳移動/滾輪縮放 → 🔒 鎖定防誤觸</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 06 存檔匯出 -->
+<section>
+<div class="container">
+  <span class="section-num">06</span>
+  <h2 class="fade-in">存檔與匯出</h2>
+  <div class="step-grid fade-in">
+    <div class="step-card"><img src="images/01-drag-card.gif" style="width:100%;border-radius:8px"><h4>匯出 JPG</h4><p>📷 匯出全部 → 每頁一張 A3 @300dpi JPG</p></div>
+    <div class="step-card"><img src="images/01-drag-card.gif" style="width:100%;border-radius:8px"><h4>存檔 .json</h4><p>💾 存檔.json → 排版下載到電腦，不怕遺失</p></div>
+    <div class="step-card"><img src="images/01-drag-card.gif" style="width:100%;border-radius:8px"><h4>讀檔 .json</h4><p>📂 讀檔.json → 選之前存的檔案 → 完整恢復</p></div>
+    <div class="step-card"><img src="images/02-move-card.gif" style="width:100%;border-radius:8px"><h4>Undo</h4><p>Ctrl+Z 或 ↩️ 按鈕，每按一次回一步（最多 20 步）</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 07 注意事項 -->
+<section>
+<div class="container">
+  <span class="section-num">07</span>
+  <h2 class="fade-in">注意事項</h2>
+  <div class="warn-list fade-in">
+    <div class="warn-item"><h4>⚠️ 不要關閉黑色命令列視窗</h4><p>那是伺服器，關掉後工具無法載入圖片和匯出</p></div>
+    <div class="warn-item"><h4>⚠️ 不能同時開兩台機台的工具</h4><p>同一時間只能開一個（佔用 port 8080），要切換請先關再開</p></div>
+    <div class="warn-item"><h4>⚠️ 記得存檔</h4><p>瀏覽器關掉或清緩存可能遺失排版，請常用「💾 存檔.json」</p></div>
+    <div class="warn-item ok"><h4>✅ 不需要安裝任何軟體</h4><p>所有程式都在資料夾裡，雙擊 .bat 即可使用，可複製到 USB</p></div>
+  </div>
+</div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
