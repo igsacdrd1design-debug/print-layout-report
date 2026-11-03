@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>印刷整合工具 — 更新報告</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg1:#0d1117;--bg2:#161b22;--bg-alt:#1c2128;--card:#21262d;--border:#30363d;--red:#E63946;--blue:#4a90d9;--green:#27ae60;--orange:#f39c12;--text:#e6edf3;--text2:#8b949e;--font:'Inter','Noto Sans TC',sans-serif;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{box-sizing:border-box;font-family:var(--font);background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);line-height:1.7;overflow-x:hidden}
+section{padding:80px 0;position:relative}
+section:nth-child(even){background:var(--bg-alt)}
+.container{max-width:1400px;margin:0 auto;padding:0 80px;width:100%}
+h2{font-size:36px;font-weight:700;margin-bottom:12px}
+h3{font-size:20px;font-weight:600;margin-bottom:8px}
+.subtitle{color:var(--text2);font-size:18px;margin-bottom:40px}
+.section-num{position:absolute;top:40px;right:40px;font-size:72px;font-weight:900;opacity:0.08;color:var(--red)}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{min-height:88vh;display:flex;align-items:center;justify-content:center;padding:120px 48px;width:100%}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;margin-bottom:16px;background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:18px;color:var(--text2);max-width:620px;margin:0 auto 32px}
+
+/* Data Cards */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px}
+.data-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center}
+.data-card .num{font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.data-card .label{color:var(--text2);font-size:14px;margin-top:8px}
+
+/* Feature step cards (橫排) */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:32px}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;transition:transform 0.2s}
+.feat-card:hover{transform:translateY(-3px)}
+.feat-card .tag{display:inline-block;background:rgba(74,144,217,0.15);color:var(--blue);font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.feat-card h4{font-size:16px;margin-bottom:6px}
+.feat-card p{font-size:13px;color:var(--text2);margin-bottom:14px}
+.feat-card .img-placeholder{padding:28px 12px;min-height:120px;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
+
+/* Process steps */
+.proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:28px}
+.proc-step{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;position:relative}
+.proc-step .step-no{font-size:22px;font-weight:800;color:var(--orange);margin-bottom:6px}
+.proc-step h4{font-size:14px;margin-bottom:4px}
+.proc-step p{font-size:12px;color:var(--text2)}
+
+/* Machine team */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:32px}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;border-top:3px solid var(--green)}
+.team-card .mname{font-size:16px;font-weight:700;color:var(--green)}
+.team-card .mmeta{font-size:13px;color:var(--text2);margin-top:6px}
+
+/* Compare Grid */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.compare-grid .image-frame img{max-height:300px}
+.compare-col{background:var(--card);border-radius:10px;padding:20px;border:1px solid var(--border)}
+.compare-col.before{border-top:3px solid var(--red)}
+.compare-col.after{border-top:3px solid var(--green)}
+.compare-col h4{font-size:14px;font-weight:600;margin-bottom:12px}
+.compare-col h4 .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px}
+.compare-col.before h4 .badge{background:rgba(230,57,70,0.2);color:var(--red)}
+.compare-col.after h4 .badge{background:rgba(39,174,96,0.2);color:var(--green)}
+
+/* Image placeholder */
+.image-frame{margin:20px 0}
+.image-frame img{display:block;width:100%;max-height:400px;object-fit:contain;border-radius:8px}
+.img-placeholder{background:var(--bg-alt);border:2px dashed var(--border);border-radius:8px;padding:40px;text-align:center;color:var(--text2);font-size:14px}
+.image-frame figcaption{font-size:12px;color:var(--text2);text-align:center;margin-top:8px}
+
+/* Pipeline */
+.pipeline{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pipeline .pip{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:500}
+.pip.done{background:rgba(39,174,96,0.15);color:var(--green)}
+.pip.wip{background:rgba(74,144,217,0.15);color:var(--blue)}
+.pip.todo{background:rgba(139,148,158,0.15);color:var(--text2)}
+
+/* Footer */
+.final-quote{font-size:20px;font-weight:500;text-align:center;margin-top:40px;color:var(--text2);font-style:italic}
+
+/* Responsive */
+@media(max-width:768px){
+  .container{padding:0 24px}
+  .compare-grid{grid-template-columns:1fr}
+  .hero{padding:90px 24px}
+  .hero h1{font-size:28px}
+  h2{font-size:28px}
+  .data-card .num{font-size:40px}
+  .section-num{font-size:48px;top:24px;right:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+<div class="container fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;text-align:left">
+  <div>
+    <h1>持續進化：印刷整合工具更新報告</h1>
+    <p class="sub">從一台機台到多機台支援，從基本功能到進階編輯。這段時間工具不斷迭代，加入更多讓設計師省時省力的功能。</p>
+    <div class="pipeline">
+      <span class="pip done">✅ 卡片進階編輯</span>
+      <span class="pip done">✅ 多機台圖</span>
+      <span class="pip done">✅ 材質總表優化</span>
+      <span class="pip done">✅ 新機台支援</span>
+    </div>
+  </div>
+  <figure class="image-frame"><img src="images/upd-hero.jpg" alt="工具最新畫面"><figcaption>印刷整合工具最新版本</figcaption></figure>
+</div>
+</section>
+
+<!-- 01 卡片進階編輯 -->
+<section>
+<div class="container">
+  <span class="section-num">01</span>
+  <h2 class="fade-in">卡片進階編輯</h2>
+  <p class="subtitle fade-in">讓設計師能更細緻地調整每張卡片的外觀，方便二次修改與疊圖對照。</p>
+  <div class="feat-grid fade-in">
+    <div class="feat-card">
+      <span class="tag">外框</span>
+      <h4>卡片外框線可調</h4>
+      <p>卡片改用 1px 60% 灰色細線外框，低調不搶眼，印刷稿更乾淨。</p>
+      <img src="images/upd-border.png" alt="卡片外框線" style="width:100%;border-radius:8px;margin-top:8px">
+    </div>
+    <div class="feat-card">
+      <span class="tag">配色</span>
+      <h4>標題 / 內文顏色各自可選</h4>
+      <p>標題（零件名稱）與內文（1.尺寸 / 2.材質 / 3.印刷）可分開選色，數量維持原色不受影響。</p>
+      <img src="images/upd-textcolor.png" alt="文字改色" style="width:100%;border-radius:8px;margin-top:8px">
+    </div>
+    <div class="feat-card">
+      <span class="tag">透視</span>
+      <h4>卡片透明度調整</h4>
+      <p>拖曳透明度滑桿讓整張卡片半透明，方便二次修改時透視底下的機台圖對位。</p>
+      <img src="images/upd-opacity.png" alt="透明度" style="width:100%;border-radius:8px;margin-top:8px">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 02 材質總表優化 -->
+<section>
+<div class="container">
+  <span class="section-num">02</span>
+  <h2 class="fade-in">材質總表優化</h2>
+  <p class="subtitle fade-in">不同機台的材質種類不同，總表自動調整，不再出現多餘的空白欄位。</p>
+  <div class="compare-grid fade-in">
+    <div class="compare-col before">
+      <h4>修改前<span class="badge">舊版</span></h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:2">
+        <li>固定欄位，沒用到的材質仍佔空白格</li>
+        <li>透明貼紙另起一欄，版面零碎</li>
+        <li>不同機台套用時要手動刪欄</li>
+      </ul>
+    </div>
+    <div class="compare-col after">
+      <h4>修改後<span class="badge">新版</span></h4>
+      <ul style="font-size:13px;color:var(--text2);padding-left:18px;line-height:2">
+        <li>空白材質欄位自動隱藏</li>
+        <li>透明貼紙併入貼紙欄位，版面更緊湊</li>
+        <li>換機台自動適配，無需手動調整</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="image-frame fade-in"><img src="images/upd-mattable.png" alt="材質總表優化"><figcaption>材質總表自動適配不同機台</figcaption></figure>
+</div>
+</section>
+
+<!-- 03 同頁多張機台圖 -->
+<section>
+<div class="container">
+  <span class="section-num">03</span>
+  <h2 class="fade-in">同頁多張機台圖</h2>
+  <p class="subtitle fade-in">一個頁面可以同時放多張機台圖，例如正視圖 + 上視圖，讓印刷指示更完整。</p>
+  <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin-top:24px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="feat-card">
+        <span class="tag">多圖</span>
+        <h4>一頁多張機台圖</h4>
+        <p>預設載入正視圖 + 上視圖兩張，也能用「➕ 機台圖」按鈕再新增，或 × 移除。</p>
+      </div>
+      <div class="feat-card">
+        <span class="tag">獨立控制</span>
+        <h4>各自拖曳 / 縮放 / 鎖定</h4>
+        <p>每張機台圖都有自己的鎖定鈕，可獨立移動、縮放，排好後鎖定防誤觸。</p>
+      </div>
+      <div class="feat-card">
+        <span class="tag">紅線</span>
+        <h4>紅線可連任一張</h4>
+        <p>卡片的紅線標註可以連到頁面上任何一張機台圖，A* 自動閃避不變。</p>
+      </div>
+    </div>
+    <figure class="image-frame" style="margin:0"><img src="images/upd-multimachine.jpg" alt="同頁多張機台圖"><figcaption>正視圖 + 上視圖同頁排版</figcaption></figure>
+  </div>
+</div>
+</section>
+
+<!-- 04 新機台支援 -->
+<section>
+<div class="container">
+  <span class="section-num">04</span>
+  <h2 class="fade-in">新機台支援</h2>
+  <p class="subtitle fade-in">工具已成功套用到三款機台，每台都走同一套標準建置流程。</p>
+  <div class="team-grid fade-in">
+    <div class="team-card"><div class="mname">🦀 蟹霸來襲</div><div class="mmeta">58 件印刷零件 · 10 種材質 · 簡中量產版</div></div>
+    <div class="team-card"><div class="mname">🔥 斗破蒼穹</div><div class="mmeta">12 件印刷零件 · 簡中版 · 複製自蟹霸</div></div>
+    <div class="team-card"><div class="mname">🌀 旋風陀螺</div><div class="mmeta">多機台圖（正視 + 上視）· 快測台</div></div>
+  </div>
+  <h3 class="fade-in" style="margin-top:40px;text-align:center">已應用的機台</h3>
+  <div class="compare-grid fade-in" style="grid-template-columns:repeat(3,1fr);margin-top:20px">
+    <figure class="image-frame"><img src="images/upd-crab.jpg" alt="蟹霸來襲"><figcaption>🦀 蟹霸來襲</figcaption></figure>
+    <figure class="image-frame"><img src="images/upd-doupo.jpg" alt="斗破蒼穹"><figcaption>🔥 斗破蒼穹</figcaption></figure>
+    <figure class="image-frame"><img src="images/upd-spin.jpg" alt="旋風陀螺"><figcaption>🌀 旋風陀螺</figcaption></figure>
+  </div>
+</div>
+</section>
+
+<!-- 結尾 -->
+<section>
+<div class="container" style="text-align:center">
+  <h2 class="fade-in">持續更新中</h2>
+  <div class="data-grid fade-in" style="max-width:900px;margin:32px auto 0">
+    <div class="data-card"><div class="num">3</div><div class="label">台機台支援</div></div>
+    <div class="data-card"><div class="num">26</div><div class="label">項功能</div></div>
+    <div class="data-card"><div class="num">∞</div><div class="label">持續更新中</div></div>
+  </div>
+
+  <p class="final-quote fade-in">「工具不是做完就結束，而是跟著每一台機台一起長大。」</p>
+
+  <h3 class="fade-in" style="margin-top:48px;color:var(--text2)">Roadmap</h3>
+  <div class="pipeline fade-in" style="justify-content:center;margin-top:16px">
+    <span class="pip done">✅ 卡片進階編輯</span>
+    <span class="pip done">✅ 多機台圖</span>
+    <span class="pip done">✅ 材質總表優化</span>
+    <span class="pip wip">🔵 通用化（上傳即生成）</span>
+    <span class="pip todo">⬜ 打包成 exe</span>
+    <span class="pip todo">⬜ 線上協作版</span>
+  </div>
+</div>
+</section>
+
+<!-- Scroll Animation -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
